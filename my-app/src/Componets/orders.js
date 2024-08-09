@@ -15,14 +15,15 @@ import {
 
 const Orders = () => {
     const ordersData = [
-        { id: 'OR9842', item: 'Call of Duty IV', status: 'Shipped', popularity: '90,80,90,70,61,83,63' },
-        { id: 'OR1848', item: 'Samsung Smart TV', status: 'Pending', popularity: '90,80,90,70,61,83,68' },
-        { id: 'OR7429', item: 'iPhone 6 Plus', status: 'Delivered', popularity: '90,80,90,70,61,83,63' },
-        { id: 'OR7429', item: 'Samsung Smart TV', status: 'Processing', popularity: '90,80,90,70,61,83,63' },
-        { id: 'OR1848', item: 'Samsung Smart TV', status: 'Pending', popularity: '90,80,90,70,61,83,68' },
-        { id: 'OR7429', item: 'iPhone 6 Plus', status: 'Delivered', popularity: '90,80,90,70,61,83,63' },
-        { id: 'OR9842', item: 'Call of Duty IV', status: 'Shipped', popularity: '90,80,90,70,61,83,63' },
+        { id: 'OR9842', item: 'Call of Duty IV', status: 'Shipped', price: '$59.99' },
+        { id: 'OR1848', item: 'Samsung Smart TV', status: 'Pending', price: '$799.99' },
+        { id: 'OR7429', item: 'iPhone 6 Plus', status: 'Delivered', price: '$699.99' },
+        { id: 'OR7429', item: 'Samsung Smart TV', status: 'Processing', price: '$799.99' },
+        { id: 'OR1848', item: 'Samsung Smart TV', status: 'Pending', price: '$799.99' },
+        { id: 'OR7429', item: 'iPhone 6 Plus', status: 'Delivered', price: '$699.99' },
+        { id: 'OR9842', item: 'Call of Duty IV', status: 'Shipped', price: '$59.99' },
     ];
+    
 
     const getStatusColor = (status) => {
         switch (status) {
@@ -40,7 +41,7 @@ const Orders = () => {
     };
 
     return (
-        <Box sx={{ padding: '20px', backgroundColor: '#2f3b52', borderRadius: '8px' }}>
+        <Box sx={{ padding: '20px', backgroundColor: '#6d96d4', borderRadius: '8px' }}>
             <Typography variant="h6" sx={{ color: '#fff', marginBottom: '10px' }}>
                 Latest Orders
             </Typography>
@@ -51,7 +52,7 @@ const Orders = () => {
                             <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Order ID</TableCell>
                             <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Item</TableCell>
                             <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Status</TableCell>
-                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Popularity</TableCell>
+                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Price</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -74,7 +75,7 @@ const Orders = () => {
                                         {order.status}
                                     </span>
                                 </TableCell>
-                                <TableCell>{order.popularity}</TableCell>
+                                <TableCell>{order.price}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
