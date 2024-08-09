@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Componets/Homepage';
-// import Breeds from './Componets/Breeds';
+import About from './Componets/About';
+import Orders from './Componets/orders';
 
 
 // import Buy from './Componets/Buy';
@@ -23,16 +24,15 @@ const router = createBrowserRouter([
   {
     path: '/home',
     element: <Home />,
+  }, 
+  {
+    path: '/about',
+    element: <About />,
   },
- 
-  // {
-  //   path: '/breeds',
-  //   element: <Breeds />,
-  // },
-  // {
-  //   path: '/Buy',
-  //   element: <Buy />,
-  // },
+  {
+    path: '/orders',
+    element: <Orders />,
+  },
 
   
 ])
