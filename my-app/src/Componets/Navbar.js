@@ -20,9 +20,16 @@ function Navbar() {
             About
           </Link>
           </li>
+          <li className="nav-item">
           <Link to={`/orders`} className="btn ">
             Orders
           </Link>
+          </li>
+          <li className="nav-item">
+          <Link to={`/stock`} className="btn ">
+            Stock
+          </Link>
+          </li>
           {/* <li className="nav-item">
             <a className="nav-link disabled" aria-disabled="true">Disabled</a>
           </li> */}

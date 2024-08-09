@@ -85,23 +85,27 @@ const DashboardContent = () => {
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Paper className="paper" style={{ backgroundColor: '#17a2b8', color: '#fff' }}>
+                      <i class="fa-solid fa-road"></i>
                         <Typography variant="h6">CPU Traffic</Typography>
                         <Typography variant="h4">10%</Typography> </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Paper className="paper" style={{ backgroundColor: '#dc3545', color: '#fff' }}>
+                    <i class="fa-solid fa-thumbs-up"></i>
                         <Typography variant="h6">Likes</Typography>
                         <Typography variant="h4">41,410</Typography>
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Paper className="paper" style={{ backgroundColor: '#28a745', color: '#fff' }}>
+                    <i class="fa-solid fa-bag-shopping"></i>
                         <Typography variant="h6">Sales</Typography>
                         <Typography variant="h4">760</Typography>
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Paper className="paper" style={{ backgroundColor: '#ffc107', color: '#fff' }}>
+                    <i class="fa-regular fa-user"></i>
                         <Typography variant="h6">New Members</Typography>
                         <Typography variant="h4">2,000</Typography>
                     </Paper>
