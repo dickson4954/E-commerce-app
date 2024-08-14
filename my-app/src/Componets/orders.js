@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import {
     TableContainer,
@@ -8,22 +8,26 @@ import {
     TableCell,
     TableBody,
     Paper,
-    Button,
     Box,
     Typography,
 } from '@mui/material';
 
 const Orders = () => {
-    const ordersData = [
-        { id: 'OR9842', item: 'Call of Duty IV', status: 'Shipped', price: '$59.99' },
-        { id: 'OR1848', item: 'Samsung Smart TV', status: 'Pending', price: '$799.99' },
-        { id: 'OR7429', item: 'iPhone 6 Plus', status: 'Delivered', price: '$699.99' },
-        { id: 'OR7429', item: 'Samsung Smart TV', status: 'Processing', price: '$799.99' },
-        { id: 'OR1848', item: 'Samsung Smart TV', status: 'Pending', price: '$799.99' },
-        { id: 'OR7429', item: 'iPhone 6 Plus', status: 'Delivered', price: '$699.99' },
-        { id: 'OR9842', item: 'Call of Duty IV', status: 'Shipped', price: '$59.99' },
-    ];
-    
+    const [ordersData, setOrdersData] = useState([]);
+
+    useEffect(() => {
+        const fetchOrders = async () => {
+            try {
+                const response = await fetch('/api/orders');
+                const data = await response.json();
+                setOrdersData(data);
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+            }
+        };
+
+        fetchOrders();
+    }, []);
 
     const getStatusColor = (status) => {
         switch (status) {
@@ -50,9 +54,10 @@ const Orders = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Order ID</TableCell>
-                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Item</TableCell>
+                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Client ID</TableCell>
+                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Order Date</TableCell>
                             <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Status</TableCell>
-                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Price</TableCell>
+                            <TableCell style={{ color: '#fff', backgroundColor: '#343a40' }}>Total</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -63,7 +68,8 @@ const Orders = () => {
                                         {order.id}
                                     </a>
                                 </TableCell>
-                                <TableCell>{order.item}</TableCell>
+                                <TableCell>{order.client_id}</TableCell>
+                                <TableCell>{order.order_date}</TableCell>
                                 <TableCell>
                                     <span style={{
                                         color: '#fff',
@@ -75,23 +81,15 @@ const Orders = () => {
                                         {order.status}
                                     </span>
                                 </TableCell>
-                                <TableCell>{order.price}</TableCell>
+                                <TableCell>{order.total}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
-            <NavLink className="goback" to={`/`}>
-          Back
-        </NavLink>
-            {/* <Box sx={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between' }}>
-                <Button variant="contained" color="primary">
-                    Place New Order
-                </Button>
-                <Button variant="contained" color="secondary">
-                    View All Orders
-                </Button>
-            </Box> */}
+            <NavLink className="goback" to="/">
+                Back
+            </NavLink>
         </Box>
     );
 };
